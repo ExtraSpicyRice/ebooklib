@@ -97,7 +97,7 @@ def get_pages(item) -> list[tuple[str, str, str]]:
     pages = []
 
     for elem in body.iter():
-        if "epub:type" in elem.attrib:
+        if "pagebreak" in elem.get("epub:type", "").split():
             if elem.get("id") is not None:
                 _text = None
 
